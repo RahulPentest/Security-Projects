@@ -29,7 +29,7 @@ Reason: {error}
 """)
 
 
-file_path = "Port Scanner Project/Ports_list.txt"
+file_path = ""
 with open(file_path, "r") as ports_list:
 
     ip_address = ports_list.readline().strip()

