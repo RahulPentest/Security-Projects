@@ -1,4 +1,4 @@
-def encode_message(image_path, message):
+def encode_message(image_path: str, message: str):
     try:
         with open(image_path, "ab") as image:
             image.write(message.encode("utf-8"))
@@ -6,7 +6,7 @@ def encode_message(image_path, message):
     except Exception as error:
         return f"The error: '{error}' occurred"
 
-def decode_message(image_path):
+def decode_message(image_path: str):
     iend_chunk = b"\x00\x00\x00\x00\x49\x45\x4E\x44\xAE\x42\x60\x82"
     eoi_marker = b"\xFF\xD9"
 
@@ -22,10 +22,11 @@ def decode_message(image_path):
     except Exception as error:
         return f"The error: '{error}' occurred"
 
+
 # < ------------ NOTES ------------ >
 # Appended Data Steganography
 # this program works by appending the payload after the IEND chunk or the EOI marker
-#
+
 # basic information about PNG files
 #   - uses lossless compression
 #   - the PNG file signature -> refers to the first 8 bytes of a PNG file
@@ -40,7 +41,7 @@ def decode_message(image_path):
 #     - PLTE -> palette table
 #     - IDAT -> image data
 #     - IEND -> image end, end of file
-#
+
 # basic information about JPEG files
 #   - uses lossy compression, LSB steganography is less effective
 #   - the JPEG file signature -> refers to the first 2 bytes of a JPEG file
@@ -49,13 +50,15 @@ def decode_message(image_path):
 #   - EOI marker -> refers to the last 2 bytes of a JPEG file
 #      - the EOI marker is -> FF D9 (hexadecimal)
 #      - the EOI marker is always the same for ALL JPEG files
-#
+
 # b"" -> denotes a byte string for handling raw binary data
 #   - it will convert characters inside it to bytes according to the character's ASCII value
 # \x -> a way to encode hexadecimal values into byte strings
 # ab -> appending bytes (it is a file mode)
 # rb -> reading bytes (it is a file mode)
-#
+
 #   .read() (when the file mode is rb) -> will return a bytes object
 #   .seek() -> moves the file cursor to a specified position in the file, 
 #       allowing you to read from or write to that location
+# <parameter_name>: <data type>  -> it is referred to as type hint
+# Based on a video from NeuralNine
