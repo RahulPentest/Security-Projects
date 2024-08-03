@@ -41,3 +41,5 @@
 # when using bitwise operations in Python, the language automatically handles the binary representation of integers, so you don’t need to manually convert them to binary.
 
 # range(start, stop, step):
+
+# LSB steganography is not effective for JPEG because it uses lossy compression
