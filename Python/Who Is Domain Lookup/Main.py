@@ -15,7 +15,7 @@ def whois_lookup(domain: str):
     except Exception as error:
         return f"The error: {error} occurred."
 
-print(whois_lookup("google.com"))
+
 
 # < ------------ NOTES ------------ >
 # The "who is" tool is a query and response protocol used for querying large publicly available databases,
